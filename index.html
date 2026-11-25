@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <meta
+      name="description"
+      content="Temukan gadget favoritmu dengan harga terbaik di GadgetHub."
+    />
+    <title>GadgetHub — Temukan Gadget Favoritmu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=checkout-payment-method" />
+    <script src="script.js?v=role-paths-20261113" defer></script>
+  </head>
+  <body>
+    <div class="announcement">
+      <span>⚡</span> Promo spesial GadgetHub — Gratis ongkir untuk pembelian
+      pertama!
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="GadgetHub, beranda">
+        <span class="brand-mark">G</span>
+        <span>gadget<span class="brand-light">hub</span><small>.</small></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a class="nav-link active" href="#beranda">Beranda</a>
+        <a class="nav-link" href="#produk">Produk</a>
+        <a class="nav-link" href="#kategori">Kategori</a>
+        <a class="nav-link" href="#tentang">Tentang</a>
+        <a
+          class="nav-link admin-nav-link"
+          id="admin-nav-link"
+          href="admin/"
+          target="_blank"
+          rel="noopener"
+          hidden
+          >Pusat kontrol admin ↗</a
+        >
+      </nav>
+
+      <div class="header-actions">
+        <label class="search-box" for="search-input">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Cari gadget..."
+            autocomplete="off"
+          />
+          <kbd>/</kbd>
+        </label>
+        <button class="auth-trigger" id="auth-trigger" type="button">
+          Masuk
+        </button>
+        <button
+          class="icon-button cart-trigger"
+          id="cart-trigger"
+          type="button"
+          aria-label="Buka keranjang"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6"
+            ></path>
+            <circle cx="10" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <button
+          class="menu-toggle icon-button"
+          id="menu-toggle"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section-wrap" id="beranda">
+        <div class="hero-copy">
+          <span class="eyebrow"
+            ><span class="eyebrow-dot"></span> GADGET PILIHAN, HARGA
+            TERBAIK</span
+          >
+          <h1>Upgrade harimu<br />dengan <span>teknologi.</span></h1>
+          <p>
+            Temukan gadget yang bikin hidup lebih praktis. Pilihan terbaik,
+            kualitas terjamin, langsung sampai di depan pintu.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#produk"
+              >Jelajahi produk <span aria-hidden="true">↗</span></a
+            >
+            <div class="customer-proof">
+              <div class="avatar-stack" aria-hidden="true">
+                <span>R</span><span>A</span><span>D</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong><small>Dipercaya 2.000+ pelanggan</small>
+              </div>
+            </div>
+          </div>
+          <div class="hero-points">
+            <span><i>✓</i> Produk original</span>
+            <span><i>✓</i> Garansi resmi</span>
+            <span><i>✓</i> Pengiriman cepat</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-image"></div>
+          <div class="floating-card floating-card-top">
+            <span class="floating-icon">✦</span>
+            <div>
+              <strong>Best seller</strong><small>Favorit minggu ini</small>
+            </div>
+          </div>
+          <div class="floating-card floating-card-bottom">
+            <span class="live-dot"></span>
+            <div>
+              <strong>Garansi resmi</strong
+              ><small>Belanja aman, hati tenang</small>
+            </div>
+          </div>
+          <div class="hero-price-tag">
+            <small>Mulai dari</small><strong>Rp 349rb</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section section-wrap" id="kategori">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">PILIH SESUAI KEBUTUHAN</span>
+            <h2>Jelajahi kategori</h2>
+          </div>
+          <a class="text-link" href="#produk"
+            >Lihat semua produk <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="category-grid">
+          <button
+            class="category-card category-phone"
+            data-category="Smartphone"
+            type="button"
+          >
+            <span class="category-icon">▯</span
+            ><span><strong>Smartphone</strong><small>2 produk</small></span
+            ><span class="category-arrow">↗</span>
+          </button>
+          <button
+            class="category-card category-audio"
+            data-category="Audio"
+            type="button"
+          >
+            <span class="category-icon">◖</span
+            ><span><strong>Audio</strong><small>3 produk</small></span
+            ><span class="category-arrow">↗</span>
+          </button>
+          <button
+            class="category-card category-wearable"
+            data-category="Wearable"
+            type="button"
+          >
+            <span class="category-icon">◉</span
+            ><span><strong>Wearable</strong><small>2 produk</small></span
+            ><span class="category-arrow">↗</span>
+          </button>
+          <button
+            class="category-card category-accessory"
+            data-category="Aksesori"
+            type="button"
+          >
+            <span class="category-icon">⌁</span
+            ><span><strong>Aksesori</strong><small>1 produk</small></span
+            ><span class="category-arrow">↗</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="products-section section-wrap" id="produk">
+        <div class="section-heading products-heading">
+          <div>
+            <span class="eyebrow">DIPILIH UNTUKMU</span>
+            <h2>Produk unggulan<span class="heading-period">.</span></h2>
+          </div>
+          <a class="text-link" href="#produk" id="reset-filter"
+            >Lihat semua <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div
+          class="filter-row"
+          role="group"
+          aria-label="Filter kategori produk"
+        >
+          <button
+            class="filter-chip selected"
+            data-filter="Semua"
+            type="button"
+          >
+            Semua produk
+          </button>
+          <button class="filter-chip" data-filter="Smartphone" type="button">
+            Smartphone
+          </button>
+          <button class="filter-chip" data-filter="Audio" type="button">
+            Audio
+          </button>
+          <button class="filter-chip" data-filter="Wearable" type="button">
+            Wearable
+          </button>
+          <button class="filter-chip" data-filter="Aksesori" type="button">
+            Aksesori
+          </button>
+          <span class="result-count" id="result-count"></span>
+        </div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>
+          Produk tidak ditemukan. Coba kata kunci atau kategori lain.
+        </p>
+      </section>
+
+      <section class="promo-banner section-wrap" id="tentang">
+        <div class="promo-copy">
+          <span class="eyebrow">WAKTUNYA GANTI GADGET</span>
+          <h2>Teknologi terbaru,<br />harga lebih bersahabat.</h2>
+          <p>
+            Potongan hingga 20% untuk produk pilihan. Jangan sampai kelewatan!
+          </p>
+          <a class="button button-light" href="#produk"
+            >Belanja sekarang <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="promo-decoration" aria-hidden="true">
+          <div class="promo-ring"></div>
+          <div class="promo-badge">UP<br />TO<br /><strong>20%</strong></div>
+          <div class="promo-star">✳</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#beranda"
+        ><span class="brand-mark">G</span
+        ><span
+          >gadget<span class="brand-light">hub</span><small>.</small></span
+        ></a
+      >
+      <p>Teknologi terbaik untuk menemani setiap harimu.</p>
+      <span class="footer-copy">© 2025 GadgetHub. Dibuat untuk kamu.</span>
+    </footer>
+
+    <div class="auth-backdrop" id="auth-backdrop"></div>
+    <section
+      class="auth-dialog"
+      id="auth-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-title"
+      aria-hidden="true"
+      inert
+    >
+      <button
+        class="auth-close"
+        id="auth-close"
+        type="button"
+        aria-label="Tutup"
+      >
+        ×
+      </button>
+      <a class="brand auth-brand" href="#beranda" aria-label="GadgetHub">
+        <span class="brand-mark">G</span>
+        <span>gadget<span class="brand-light">hub</span><small>.</small></span>
+      </a>
+      <p class="auth-intro" id="auth-intro">
+        Selamat datang di GadgetHub. Masuk untuk melanjutkan.
+      </p>
+      <div class="auth-tabs" role="tablist" aria-label="Pilih akses akun">
+        <button
+          class="auth-tab selected"
+          id="login-tab"
+          type="button"
+          role="tab"
+          aria-selected="true"
+        >
+          Masuk
+        </button>
+        <button
+          class="auth-tab"
+          id="register-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+        >
+          Daftar
+        </button>
+      </div>
+      <form class="auth-form" id="login-form">
+        <h2 id="auth-title">Masuk ke akunmu</h2>
+        <label for="login-email">Email</label>
+        <input
+          id="login-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="nama@email.com"
+          required
+        />
+        <label for="login-password">Kata sandi</label>
+        <input
+          id="login-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Masukkan kata sandi"
+          required
+        />
+        <p
+          class="login-countdown"
+          id="login-countdown"
+          role="status"
+          aria-live="assertive"
+          hidden
+        ></p>
+        <p class="auth-error" id="login-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Masuk <span aria-hidden="true">→</span>
+        </button>
+        <button class="otp-resend" id="forgot-password-link" type="button">
+          Lupa kata sandi?
+        </button>
+      </form>
+      <form class="auth-form" id="login-otp-form" hidden>
+        <h2>Verifikasi login</h2>
+        <p class="verification-hint">
+          Masukkan kode OTP yang kami kirim ke
+          <strong id="login-otp-email-label"></strong>.
+          <span id="login-otp-expiry">Kode berlaku 10 menit.</span>
+        </p>
+        <input id="login-otp-email" name="email" type="hidden" />
+        <label for="login-otp-code">Kode OTP</label>
+        <input
+          id="login-otp-code"
+          name="otp"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          pattern="[0-9]{6}"
+          maxlength="6"
+          placeholder="000000"
+          required
+        />
+        <p class="auth-error" id="login-otp-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Verifikasi dan masuk <span aria-hidden="true">→</span>
+        </button>
+        <button class="otp-resend" id="resend-login-otp" type="button">
+          Kirim ulang kode
+        </button>
+        <button class="otp-resend" id="back-to-login-otp" type="button">
+          Kembali ke masuk
+        </button>
+      </form>
+      <form class="auth-form" id="forgot-password-form" hidden>
+        <h2>Lupa kata sandi?</h2>
+        <p class="verification-hint">
+          Masukkan email akunmu. Jika terdaftar, kami akan mengirim tautan
+          untuk membuat kata sandi baru.
+        </p>
+        <label for="forgot-password-email">Email</label>
+        <input
+          id="forgot-password-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="nama@email.com"
+          required
+        />
+        <p class="auth-error" id="forgot-password-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Kirim kode konfirmasi <span aria-hidden="true">→</span>
+        </button>
+        <button class="otp-resend" id="back-to-login" type="button">
+          Kembali ke masuk
+        </button>
+      </form>
+      <form class="auth-form" id="reset-password-form" hidden>
+        <h2>Buat kata sandi baru</h2>
+        <p class="verification-hint">
+          Masukkan kode konfirmasi yang dikirim ke email akunmu. Kata sandi
+          baru dibuat langsung di website.
+        </p>
+        <input id="reset-password-email" name="email" type="hidden" />
+        <label for="reset-password-code">Kode konfirmasi</label>
+        <input
+          id="reset-password-code"
+          name="code"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          pattern="[0-9]{6}"
+          maxlength="6"
+          placeholder="000000"
+          required
+        />
+        <label for="reset-password-new">Kata sandi baru</label>
+        <input
+          id="reset-password-new"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          placeholder="Minimal 8 karakter"
+          required
+        />
+        <label for="reset-password-confirm">Ulangi kata sandi baru</label>
+        <input
+          id="reset-password-confirm"
+          name="confirm"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          placeholder="Ulangi kata sandi"
+          required
+        />
+        <p class="auth-error" id="reset-password-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Perbarui kata sandi <span aria-hidden="true">→</span>
+        </button>
+        <button class="otp-resend" id="request-reset-again" type="button">
+          Minta kode baru
+        </button>
+      </form>
+      <form class="auth-form" id="change-password-form" hidden>
+        <h2>Ganti kata sandi</h2>
+        <label for="change-password-current">Kata sandi saat ini</label>
+        <input
+          id="change-password-current"
+          name="currentPassword"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+        <label for="change-password-new">Kata sandi baru</label>
+        <input
+          id="change-password-new"
+          name="newPassword"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          placeholder="Minimal 8 karakter"
+          required
+        />
+        <label for="change-password-confirm">Ulangi kata sandi baru</label>
+        <input
+          id="change-password-confirm"
+          name="confirm"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          placeholder="Ulangi kata sandi"
+          required
+        />
+        <p class="auth-error" id="change-password-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Ganti kata sandi <span aria-hidden="true">→</span>
+        </button>
+        <button class="otp-resend" id="account-logout" type="button">
+          Keluar dari akun
+        </button>
+      </form>
+      <form class="auth-form" id="register-form" hidden>
+        <h2 id="register-title">Buat akun baru</h2>
+        <label for="register-name">Nama lengkap</label>
+        <input
+          id="register-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          placeholder="Nama kamu"
+          minlength="2"
+          required
+        />
+        <label for="register-email">Email</label>
+        <input
+          id="register-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="nama@email.com"
+          required
+        />
+        <label for="register-password"
+          >Kata sandi <span>Minimal 8 karakter</span></label
+        >
+        <input
+          id="register-password"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          placeholder="Buat kata sandi"
+          minlength="8"
+          required
+        />
+        <label for="register-confirm">Konfirmasi kata sandi</label>
+        <input
+          id="register-confirm"
+          name="confirm"
+          type="password"
+          autocomplete="new-password"
+          placeholder="Ulangi kata sandi"
+          minlength="8"
+          required
+        />
+        <p class="auth-error" id="register-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Buat akun <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <form class="auth-form" id="verification-form" hidden>
+        <h2>Verifikasi email</h2>
+        <p class="verification-hint">
+          Masukkan kode 6 digit yang kami kirim ke
+          <strong id="verification-email-label"></strong>.
+          <span id="verification-expiry">Kode berlaku 10 menit.</span>
+        </p>
+        <input id="verification-email" name="email" type="hidden" />
+        <label for="verification-otp">Kode OTP</label>
+        <input
+          id="verification-otp"
+          name="otp"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          pattern="[0-9]{6}"
+          maxlength="6"
+          placeholder="000000"
+          required
+        />
+        <p class="auth-error" id="verification-error" role="alert" hidden></p>
+        <button class="button button-primary auth-submit" type="submit">
+          Verifikasi akun <span aria-hidden="true">→</span>
+        </button>
+        <button class="otp-resend" id="resend-otp" type="button">
+          Kirim ulang kode
+        </button>
+      </form>
+      <p class="auth-note">
+        Kata sandi disimpan sebagai hash di database. Sesi login dikelola oleh
+        server.
+      </p>
+    </section>
+
+    <div class="cart-backdrop" id="cart-backdrop"></div>
+    <aside
+      class="cart-drawer"
+      id="cart-drawer"
+      aria-labelledby="cart-title"
+      aria-hidden="true"
+    >
+      <div class="cart-header">
+        <div>
+          <span class="eyebrow">BELANJAANMU</span>
+          <h2 id="cart-title">
+            Keranjang <span id="cart-title-count">(0)</span>
+          </h2>
+        </div>
+        <button
+          class="icon-button"
+          id="close-cart"
+          type="button"
+          aria-label="Tutup keranjang"
+        >
+          ×
+        </button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty">
+        <span>🛍️</span><strong>Keranjangmu masih kosong</strong>
+        <p>Yuk, temukan gadget favoritmu!</p>
+        <button
+          class="button button-primary"
+          id="continue-shopping"
+          type="button"
+        >
+          Mulai belanja
+        </button>
+      </div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="subtotal-row">
+          <span>Subtotal</span><strong id="cart-subtotal">Rp 0</strong>
+        </div>
+        <p>Informasi pengiriman dan kontak diisi saat checkout.</p>
+        <button
+          class="button button-primary checkout-button"
+          id="checkout-button"
+          type="button"
+        >
+          Lanjut checkout <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </aside>
+    <dialog
+      class="checkout-dialog"
+      id="checkout-dialog"
+      aria-labelledby="checkout-title"
+    >
+      <div class="checkout-dialog-header">
+        <div>
+          <span class="eyebrow">INFORMASI PEMESAN</span>
+          <h2 id="checkout-title">Data pengiriman</h2>
+        </div>
+        <button
+          class="icon-button checkout-close"
+          id="checkout-close"
+          type="button"
+          aria-label="Tutup form checkout"
+        >
+          ×
+        </button>
+      </div>
+      <form class="checkout-form" id="checkout-form">
+        <p class="checkout-description">
+          Lengkapi data penerima dan alamat agar pesanan dapat diproses dengan
+          benar.
+        </p>
+        <div class="checkout-form-grid">
+          <label for="checkout-name">Nama penerima</label>
+          <input
+            id="checkout-name"
+            name="recipientName"
+            type="text"
+            minlength="2"
+            maxlength="120"
+            autocomplete="name"
+            required
+          />
+          <label for="checkout-email">Email kontak</label>
+          <input
+            id="checkout-email"
+            name="recipientEmail"
+            type="email"
+            maxlength="190"
+            autocomplete="email"
+            required
+          />
+          <label for="checkout-phone">Nomor telepon / WhatsApp</label>
+          <input
+            id="checkout-phone"
+            name="recipientPhone"
+            type="tel"
+            minlength="8"
+            maxlength="30"
+            autocomplete="tel"
+            placeholder="Contoh: 081234567890"
+            required
+          />
+          <label for="checkout-address">Alamat lengkap</label>
+          <textarea
+            id="checkout-address"
+            name="shippingAddress"
+            minlength="10"
+            maxlength="2000"
+            autocomplete="street-address"
+            rows="4"
+            placeholder="Nama jalan, nomor rumah, kelurahan, kecamatan, kota, kode pos"
+            required
+          ></textarea>
+          <label for="checkout-payment-method">Metode pembayaran</label>
+          <select id="checkout-payment-method" name="paymentMethod" required>
+            <option value="" selected disabled>Pilih metode pembayaran</option>
+            <option value="cod">COD (bayar saat barang diterima)</option>
+            <option value="bank_transfer">Transfer bank</option>
+          </select>
+        </div>
+        <p class="checkout-payment-note" id="checkout-payment-note">
+          Untuk transfer bank, admin akan memberikan informasi rekening.
+          Pembayaran belum diproses otomatis.
+        </p>
+        <div class="checkout-summary">
+          <span id="checkout-item-summary">0 barang</span>
+          <strong id="checkout-total">Rp 0</strong>
+        </div>
+        <p class="checkout-error" id="checkout-error" role="alert" hidden></p>
+        <button
+          class="button button-primary checkout-submit"
+          id="checkout-submit"
+          type="submit"
+        >
+          Buat pesanan <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <section
+        class="checkout-success"
+        id="checkout-success"
+        aria-live="polite"
+        hidden
+      >
+        <span class="checkout-success-icon" aria-hidden="true">✓</span>
+        <h3>Pesanan berhasil dibuat</h3>
+        <p id="checkout-success-message"></p>
+        <div
+          class="checkout-success-details"
+          id="checkout-success-details"
+        ></div>
+        <button class="button button-primary" id="checkout-done" type="button">
+          Lanjut belanja
+        </button>
+      </section>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

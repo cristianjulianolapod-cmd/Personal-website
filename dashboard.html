@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <title>Pusat Kontrol — GadgetHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=admin-login-otp-20261113" />
+    <script src="dashboard.js?v=admin-login-otp-20261113" defer></script>
+  </head>
+  <body class="admin-page">
+    <header class="site-header admin-page-header">
+      <a class="brand" href="index.html" aria-label="Kembali ke GadgetHub">
+        <span class="brand-mark">G</span>
+        <span>gadget<span class="brand-light">hub</span><small>.</small></span>
+      </a>
+      <div class="admin-page-header-actions">
+        <a class="admin-back-link" href="index.html">← Kembali ke beranda</a>
+        <button class="auth-trigger" id="admin-logout" type="button" hidden>
+          Keluar dan ganti akun
+        </button>
+      </div>
+    </header>
+
+    <main class="admin-page-main section-wrap">
+      <div class="admin-access-message" id="admin-access-message" role="status">
+        Memeriksa sesi administrator…
+      </div>
+      <section class="admin-login" id="admin-login" hidden aria-labelledby="admin-login-title">
+        <h1 id="admin-login-title">Masuk administrator</h1>
+        <p class="admin-login-intro" id="admin-login-intro">
+          Masuk dengan akun administrator GadgetHub.
+        </p>
+        <form id="admin-login-form">
+          <label for="admin-login-email">Email</label>
+          <input id="admin-login-email" name="email" type="email" autocomplete="username" required />
+          <label for="admin-login-password">Kata sandi</label>
+          <input id="admin-login-password" name="password" type="password" autocomplete="current-password" required />
+          <p class="admin-login-error" id="admin-login-error" role="alert" hidden></p>
+          <button class="button button-primary" type="submit">Lanjutkan <span aria-hidden="true">→</span></button>
+        </form>
+        <form id="admin-login-otp-form" hidden>
+          <p class="admin-login-intro">Masukkan kode OTP yang dikirim ke <strong id="admin-login-otp-email"></strong>.</p>
+          <label for="admin-login-otp">Kode OTP</label>
+          <input id="admin-login-otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required />
+          <p class="admin-login-error" id="admin-login-otp-error" role="alert" hidden></p>
+          <button class="button button-primary" type="submit">Verifikasi dan masuk <span aria-hidden="true">→</span></button>
+          <button class="admin-login-secondary" id="admin-login-resend" type="button">Kirim ulang kode</button>
+          <button class="admin-login-secondary" id="admin-login-back" type="button">Kembali</button>
+        </form>
+      </section>
+      <section
+        id="admin-dashboard"
+        hidden
+        aria-labelledby="admin-dashboard-title"
+      >
+        <div class="section-heading" id="admin-standard-heading">
+          <div>
+            <span class="eyebrow">PUSAT KONTROL</span>
+            <h1 id="admin-dashboard-title">
+              Dashboard admin<span class="heading-period">.</span>
+            </h1>
+          </div>
+          <span class="admin-badge" id="admin-role-badge">Administrator</span>
+        </div>
+        <div class="super-admin-overview" id="super-admin-overview" hidden>
+          <div class="super-admin-title-row">
+            <div>
+              <span class="super-admin-eyebrow">GADGETHUB · PUSAT KONTROL</span>
+              <h1>
+                Selamat datang, <span id="super-admin-name">Super Admin</span>
+              </h1>
+              <p>
+                Pantau operasional, pemasaran, laporan, dan moderasi toko dari
+                satu pusat kontrol.
+              </p>
+            </div>
+            <span class="super-admin-status"
+              ><span></span> Super admin aktif</span
+            >
+          </div>
+          <nav
+            class="super-admin-shortcuts"
+            aria-label="Pintasan pusat kontrol"
+          >
+            <a href="#super-admin-users-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >◎</span
+              >
+              <span
+                ><strong>Pengguna & hak akses</strong
+                ><small>Kelola peran dan status akun</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+            <a href="#super-admin-products-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >▦</span
+              >
+              <span
+                ><strong>Produk & katalog</strong
+                ><small>Atur produk, stok, dan visibilitas</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+            <a href="#super-admin-orders-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >≡</span
+              >
+              <span
+                ><strong>Pesanan toko</strong
+                ><small>Pantau dan perbarui pesanan</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+            <a href="#super-admin-transactions-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >Rp</span
+              >
+              <span
+                ><strong>Transaksi</strong
+                ><small>Pantau ringkasan pembayaran</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+            <a href="#super-admin-marketing-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >✳</span
+              >
+              <span
+                ><strong>Pemasaran & konten</strong
+                ><small>Kupon, flash sale, dan kampanye</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+            <a href="#super-admin-reports-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >▤</span
+              >
+              <span
+                ><strong>Laporan & analitik</strong
+                ><small>Penjualan, produk, pelanggan, stok</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+            <a href="#super-admin-moderation-panel">
+              <span class="super-admin-shortcut-icon" aria-hidden="true"
+                >✓</span
+              >
+              <span
+                ><strong>Moderasi</strong
+                ><small>Ulasan, komplain, laporan</small></span
+              >
+              <span class="super-admin-shortcut-arrow" aria-hidden="true"
+                >↗</span
+              >
+            </a>
+          </nav>
+        </div>
+        <div class="admin-stats" id="admin-stats" aria-live="polite"></div>
+        <section
+          class="admin-panel"
+          id="super-admin-orders-panel"
+          aria-labelledby="admin-orders-title"
+        >
+          <div class="admin-panel-heading">
+            <div>
+              <span class="eyebrow">PEMBELIAN TERBARU</span>
+              <h2 id="admin-orders-title">Kelola pesanan</h2>
+            </div>
+            <span class="admin-caption"
+              >Maksimal 200 pesanan terbaru · ubah status untuk memperbarui
+              proses</span
+            >
+          </div>
+          <div class="admin-list-toolbar">
+            <label class="admin-search-field">
+              <span class="sr-only">Cari pesanan</span>
+              <input
+                id="admin-order-search"
+                type="search"
+                placeholder="Cari nomor, nama, email, atau produk…"
+                autocomplete="off"
+              />
+            </label>
+            <label class="admin-filter-field">
+              <span class="sr-only">Filter status pesanan</span>
+              <select id="admin-order-filter" class="admin-select">
+                <option value="all">Semua status</option>
+                <option value="pending">Menunggu pembayaran</option>
+                <option value="paid">Dibayar</option>
+                <option value="processing">Diproses</option>
+                <option value="shipped">Dikirim</option>
+                <option value="completed">Selesai</option>
+                <option value="cancelled">Dibatalkan</option>
+              </select>
+            </label>
+            <span
+              class="admin-result-count"
+              id="admin-order-count"
+              aria-live="polite"
+            ></span>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table admin-orders-table">
+              <thead>
+                <tr>
+                  <th>Pesanan</th>
+                  <th>Pelanggan</th>
+                  <th>Rincian produk</th>
+                  <th>Alamat kirim</th>
+                  <th>Tanggal</th>
+                  <th>Total</th>
+                  <th>Metode bayar</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders"></tbody>
+            </table>
+          </div>
+        </section>
+        <section
+          class="admin-panel"
+          id="super-admin-transactions-panel"
+          aria-labelledby="admin-transactions-title"
+        >
+          <div class="admin-panel-heading">
+            <div>
+              <span class="eyebrow">KEUANGAN</span>
+              <h2 id="admin-transactions-title">Transaksi & pembayaran</h2>
+            </div>
+            <span class="admin-caption"
+              >Super admin dapat memperbarui status pembayaran secara manual ·
+              belum terhubung ke payment gateway</span
+            >
+          </div>
+          <div
+            class="transaction-stats"
+            id="admin-transaction-stats"
+            aria-live="polite"
+          ></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table admin-transactions-table">
+              <thead>
+                <tr>
+                  <th>Referensi</th>
+                  <th>Pelanggan</th>
+                  <th>Tanggal pesanan</th>
+                  <th>Jumlah</th>
+                  <th>Metode bayar</th>
+                  <th>Status pembayaran</th>
+                  <th>Status pesanan</th>
+                  <th>Terakhir diperbarui</th>
+                </tr>
+              </thead>
+              <tbody id="admin-transactions"></tbody>
+            </table>
+          </div>
+          <div class="admin-panel-heading transaction-activity-heading">
+            <div>
+              <span class="eyebrow">JEJAK PERUBAHAN</span>
+              <h3 id="admin-transaction-activity-title">
+                Laporan aktivitas transaksi
+              </h3>
+            </div>
+            <span class="admin-caption"
+              >Maksimal 200 aktivitas terbaru · pesanan baru dan perubahan
+              status pembayaran</span
+            >
+          </div>
+          <div class="admin-table-wrap">
+            <table
+              class="admin-table admin-transaction-activity-table"
+              aria-labelledby="admin-transaction-activity-title"
+            >
+              <thead>
+                <tr>
+                  <th>Waktu</th>
+                  <th>Aktivitas</th>
+                  <th>Referensi</th>
+                  <th>Pelanggan</th>
+                  <th>Perubahan status pembayaran</th>
+                  <th>Nilai transaksi</th>
+                  <th>Dicatat oleh</th>
+                </tr>
+              </thead>
+              <tbody id="admin-transaction-activities"></tbody>
+            </table>
+          </div>
+        </section>
+        <section
+          class="admin-panel"
+          id="super-admin-marketing-panel"
+          aria-labelledby="admin-marketing-title"
+          hidden
+        >
+          <div class="admin-panel-heading">
+            <div><span class="eyebrow">PERTUMBUHAN</span><h2 id="admin-marketing-title">Pemasaran & konten</h2></div>
+            <span class="admin-caption">Email massal/notifikasi belum mengirim pesan ke pelanggan.</span>
+          </div>
+          <div class="admin-panel-heading admin-subpanel-heading"><div><h3>Kupon & voucher</h3></div></div>
+          <form class="admin-tool-form" data-tool-type="coupon">
+            <div class="admin-tool-form-grid">
+              <label>Kode kupon<input name="code" maxlength="40" required /></label>
+              <label>Tipe diskon<select name="discountType" required><option value="percent">Persentase</option><option value="fixed">Potongan rupiah</option></select></label>
+              <label>Nilai diskon<input name="discountValue" type="number" min="1" step="1" required /></label>
+              <label>Batas pemakaian<input name="usageLimit" type="number" min="1" step="1" placeholder="Tidak dibatasi" /></label>
+              <label>Mulai<input name="startsAt" type="datetime-local" /></label>
+              <label>Berakhir<input name="endsAt" type="datetime-local" /></label>
+            </div>
+            <button class="button button-primary" type="submit">Buat kupon</button>
+          </form>
+          <div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Kode</th><th>Diskon</th><th>Masa berlaku</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="admin-coupons"></tbody></table></div>
+          <div class="admin-panel-heading admin-subpanel-heading"><div><h3>Jadwal flash sale</h3></div><span class="admin-caption">Jadwal tersimpan; harga checkout/katalog belum berubah otomatis.</span></div>
+          <form class="admin-tool-form" data-tool-type="flash_sale">
+            <div class="admin-tool-form-grid">
+              <label>Nama promo<input name="title" maxlength="180" required /></label>
+              <label>Produk<select name="productId" id="admin-flash-sale-product"><option value="">Tanpa produk spesifik</option></select></label>
+              <label>Harga promo (Rp)<input name="salePrice" type="number" min="0" step="1" required /></label>
+              <label>Mulai<input name="startsAt" type="datetime-local" required /></label>
+              <label>Berakhir<input name="endsAt" type="datetime-local" required /></label>
+            </div>
+            <button class="button button-primary" type="submit">Simpan jadwal</button>
+          </form>
+          <div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Promo</th><th>Produk</th><th>Harga</th><th>Jadwal</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="admin-flash-sales"></tbody></table></div>
+          <div class="admin-panel-heading admin-subpanel-heading"><div><h3>Notifikasi & email massal</h3></div></div>
+          <form class="admin-tool-form" data-tool-type="campaign">
+            <div class="admin-tool-form-grid">
+              <label>Kanal<select name="channel"><option value="notification">Notifikasi</option><option value="email">Email massal</option></select></label>
+              <label>Subjek<input name="subject" maxlength="180" required /></label>
+              <label>Status<select name="status"><option value="draft">Draft</option><option value="scheduled">Terjadwal</option></select></label>
+              <label>Jadwal kirim<input name="scheduledAt" type="datetime-local" /></label>
+              <label class="admin-tool-wide">Isi pesan<textarea name="body" rows="2" required></textarea></label>
+            </div>
+            <button class="button button-primary" type="submit">Simpan draft</button>
+          </form>
+          <div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Kanal</th><th>Subjek</th><th>Jadwal</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="admin-campaigns"></tbody></table></div>
+          <p class="admin-tool-note">Pengiriman notifikasi/email belum aktif; draft dan jadwal hanya tersimpan untuk persiapan integrasi.</p>
+        </section>
+        <section
+          class="admin-panel"
+          id="super-admin-reports-panel"
+          aria-labelledby="admin-reports-title"
+          hidden
+        >
+          <div class="admin-panel-heading">
+            <div><span class="eyebrow">INSIGHT TOKO</span><h2 id="admin-reports-title">Laporan & analitik</h2></div>
+            <span class="admin-caption">Pendapatan menghitung pesanan dengan pembayaran berstatus dibayar.</span>
+          </div>
+          <div class="admin-list-toolbar">
+            <label class="admin-filter-field"><span class="sr-only">Jenis ekspor</span><select id="admin-report-export" class="admin-select"><option value="monthlySales">Penjualan bulanan</option><option value="topProducts">Produk terlaris</option><option value="topCustomers">Pelanggan teratas</option><option value="stock">Laporan stok</option></select></label>
+            <button class="button button-primary" id="admin-report-download" type="button">Ekspor CSV untuk Excel</button>
+            <span class="admin-caption">Data ringkasan terbaru, maksimal 200 baris stok.</span>
+          </div>
+          <div class="admin-report-grid">
+            <article class="admin-report-card"><h3>Penjualan bulanan</h3><div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Bulan</th><th>Pesanan dibayar</th><th>Pendapatan</th></tr></thead><tbody id="admin-report-monthly"></tbody></table></div></article>
+            <article class="admin-report-card"><h3>Produk terlaris</h3><div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Produk</th><th>Terjual</th><th>Pendapatan</th></tr></thead><tbody id="admin-report-products"></tbody></table></div></article>
+            <article class="admin-report-card"><h3>Pelanggan teratas</h3><div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Pelanggan</th><th>Pesanan</th><th>Pendapatan</th></tr></thead><tbody id="admin-report-customers"></tbody></table></div></article>
+            <article class="admin-report-card"><h3>Ringkasan stok</h3><div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Produk</th><th>Kategori</th><th>Stok</th><th>Nilai stok</th></tr></thead><tbody id="admin-report-stock"></tbody></table></div></article>
+          </div>
+        </section>
+        <section
+          class="admin-panel"
+          id="super-admin-moderation-panel"
+          aria-labelledby="admin-moderation-title"
+          hidden
+        >
+          <div class="admin-panel-heading">
+            <div><span class="eyebrow">KEPERCAYAAN & KEAMANAN</span><h2 id="admin-moderation-title">Moderasi & laporan pelanggan</h2></div>
+            <span class="admin-caption">Catat masukan yang diterima; ulasan dan laporan publik belum memiliki formulir storefront.</span>
+          </div>
+          <div class="admin-panel-heading admin-subpanel-heading"><div><h3>Catat ulasan untuk moderasi</h3></div></div>
+          <form class="admin-tool-form" data-tool-type="review">
+            <div class="admin-tool-form-grid">
+              <label>Nama pelanggan<input name="customerName" maxlength="120" required /></label>
+              <label>Produk<select name="productId" id="admin-review-product"><option value="">Tanpa produk spesifik</option></select></label>
+              <label>Rating<select name="rating"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select></label>
+              <label class="admin-tool-wide">Ulasan<textarea name="reviewText" rows="2" required></textarea></label>
+            </div>
+            <button class="button button-primary" type="submit">Masukkan ke antrean</button>
+          </form>
+          <div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Pelanggan</th><th>Rating</th><th>Ulasan</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="admin-reviews"></tbody></table></div>
+          <div class="admin-panel-heading admin-subpanel-heading"><div><h3>Komplain pelanggan</h3></div></div>
+          <form class="admin-tool-form" data-tool-type="complaint">
+            <div class="admin-tool-form-grid">
+              <label>Nama pelanggan<input name="customerName" maxlength="120" required /></label>
+              <label>Email<input name="customerEmail" type="email" maxlength="190" required /></label>
+              <label>Subjek<input name="subject" maxlength="180" required /></label>
+              <label class="admin-tool-wide">Pesan<textarea name="message" rows="2" required></textarea></label>
+            </div>
+            <button class="button button-primary" type="submit">Catat komplain</button>
+          </form>
+          <div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Pelanggan</th><th>Subjek & pesan</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="admin-complaints"></tbody></table></div>
+          <div class="admin-panel-heading admin-subpanel-heading"><div><h3>Laporan penyalahgunaan</h3></div></div>
+          <form class="admin-tool-form" data-tool-type="abuse_report">
+            <div class="admin-tool-form-grid">
+              <label>Email pelapor<input name="reporterEmail" type="email" maxlength="190" /></label>
+              <label>Jenis target<input name="targetType" maxlength="40" placeholder="Ulasan, akun, konten" required /></label>
+              <label>Referensi target<input name="targetReference" maxlength="190" required /></label>
+              <label class="admin-tool-wide">Alasan<textarea name="reason" rows="2" required></textarea></label>
+            </div>
+            <button class="button button-primary" type="submit">Catat laporan</button>
+          </form>
+          <div class="admin-table-wrap"><table class="admin-table admin-tools-table"><thead><tr><th>Pelapor</th><th>Target</th><th>Alasan</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="admin-abuse-reports"></tbody></table></div>
+        </section>
+        <section
+          class="admin-panel"
+          id="super-admin-products-panel"
+          aria-labelledby="admin-products-title"
+        >
+          <div class="admin-panel-heading">
+            <div>
+              <span class="eyebrow">KATALOG</span>
+              <h2 id="admin-products-title">Manajemen produk & katalog</h2>
+            </div>
+            <span class="admin-caption"
+              >Stok bisa diperbarui admin; katalog dikelola super admin</span
+            >
+          </div>
+          <form class="admin-product-form" id="admin-product-create" hidden>
+            <h3>Tambah produk ke katalog</h3>
+            <div class="admin-product-form-grid">
+              <label
+                >Nama produk<input
+                  name="name"
+                  type="text"
+                  maxlength="180"
+                  required
+              /></label>
+              <label
+                >Kategori<input
+                  name="category"
+                  type="text"
+                  maxlength="60"
+                  list="admin-product-categories"
+                  required
+              /></label>
+              <label
+                >Harga (Rp)<input
+                  name="price"
+                  type="number"
+                  min="0"
+                  max="4294967295"
+                  step="1"
+                  required
+              /></label>
+              <label
+                >URL gambar<input
+                  name="image"
+                  type="url"
+                  maxlength="500"
+                  placeholder="https://..."
+                  required
+              /></label>
+              <label
+                >Stok awal<input
+                  name="stock"
+                  type="number"
+                  min="0"
+                  max="1000000"
+                  step="1"
+                  value="0"
+                  required
+              /></label>
+            </div>
+            <datalist id="admin-product-categories"></datalist>
+            <button class="button button-primary" type="submit">
+              Tambah ke katalog <span aria-hidden="true">+</span>
+            </button>
+          </form>
+          <div class="admin-table-wrap">
+            <table class="admin-table admin-catalog-table">
+              <thead>
+                <tr>
+                  <th>Produk</th>
+                  <th>Kategori</th>
+                  <th>Harga</th>
+                  <th>Gambar</th>
+                  <th>Stok</th>
+                  <th>Katalog</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products"></tbody>
+            </table>
+          </div>
+        </section>
+        <section
+          class="admin-panel"
+          id="super-admin-users-panel"
+          aria-labelledby="admin-users-title"
+        >
+          <div class="admin-panel-heading">
+            <div>
+              <span class="eyebrow">AKSES AKUN</span>
+              <h2 id="admin-users-title">Manajemen pengguna & hak akses</h2>
+            </div>
+            <span class="admin-caption"
+              >Super admin dapat mengelola peran dan mengaktifkan akun</span
+            >
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nama</th>
+                  <th>Email</th>
+                  <th>Terdaftar</th>
+                  <th>Peran</th>
+                  <th>Akun</th>
+                </tr>
+              </thead>
+              <tbody id="admin-users"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
